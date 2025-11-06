@@ -7,7 +7,7 @@ if (!process.env.GEMINI_API_KEY) {
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function generateScript(topic: string): Promise<Array<{ id: number; text: string }>> {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `Create a short video script for social media (Instagram Reels/TikTok) about: "${topic}"
 
@@ -66,7 +66,7 @@ Only return the JSON array, no additional text.`;
 }
 
 export async function generateImagePrompt(sceneText: string): Promise<string> {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `Create a detailed image description for this video scene: "${sceneText}"
 
