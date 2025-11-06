@@ -263,18 +263,20 @@ export default function Home() {
 
         {currentStep === 5 && currentProject && (
           <VideoPreview
-            videoUrl="/mock-video.mp4"
+            scenes={currentProject.scenes}
+            voiceVolume={100}
+            musicVolume={30}
+            musicTrackId={selectedMusic}
             isRendering={false}
-            onRerender={() => {
-              toast({
-                title: "Feature Coming Soon",
-                description: "Video rendering will be available soon.",
-              });
+            onRestart={() => {
+              setCurrentStep(1);
+              setCurrentProject(null);
             }}
             onDownload={() => {
               toast({
-                title: "Feature Coming Soon",
-                description: "Video download will be available soon.",
+                title: "Yuklab Olish Funksiyasi",
+                description: "To'liq video fayl yaratish uchun server-side rendering (FFmpeg) kerak. Hozircha faqat preview mavjud.",
+                variant: "default",
               });
             }}
           />
